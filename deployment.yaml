@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: chatserver
+  labels:
+    app: chatserver
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: chatserver
+  template:
+    metadata:
+      labels:
+        app: chatserver
+    spec:
+      containers:
+        - name: chatserver
+          image: chatserver
+          ports:
+            - containerPort: 5001
